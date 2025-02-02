@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
-export const globlStyles = createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
 ${reset}
 * {
   box-sizing: border-box;
@@ -12,7 +12,7 @@ body {
   width: 100%;
   height: 100vh;
   margin: 0 auto;
-  font-size: 62.5%
+  font-size: 62.5%;
 }
 
 a {
