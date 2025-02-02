@@ -6,6 +6,7 @@ export const getCurrent = async (location: string) => {
       params: { q: location },
     });
     console.log(response.data);
+    return response.data;
   } catch (err) {
     console.error("error발생!", err);
   }
