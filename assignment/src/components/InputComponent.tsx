@@ -19,7 +19,12 @@ export default function InputComponent() {
   }
 
   function handleOnClickButton() {
-    setCity(value);
+    if (value) {
+      alert(`Are you sure with ${value}?`);
+      setCity(value);
+    } else {
+      alert("please enter right thing,,,,");
+    }
   }
 
   return (
