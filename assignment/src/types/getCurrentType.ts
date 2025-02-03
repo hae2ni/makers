@@ -11,6 +11,7 @@ export interface CurrentTypes {
   temp_c: number;
   uv: number;
   wind_kph: number;
+  condition: ConditionType;
 }
 
 export interface ConditionType {
