@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import TabComponent from "../../components/TabComponent";
 import { Outlet } from "react-router";
+import HomeButton from "../../components/HomeButton";
 
 export default function Layout() {
   return (
     <LayoutContainer>
+      <HomeButton />
       <TabComponent />
       <main>
         <Outlet />
