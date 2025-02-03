@@ -1,12 +1,7 @@
 import { LocationType } from "./getCurrentType";
-import { DayType } from "./getForecastType";
+import { ForecastDayType } from "./getForecastType";
 
 export interface GetFutureType {
-  forecast: ForecastDayType[];
+  forecast: ForecastDayType;
   location: LocationType;
-}
-
-interface ForecastDayType {
-  date: string;
-  day: DayType;
 }

@@ -4,7 +4,7 @@ export interface GetForecastType {
   forecast: ForecastDayType;
 }
 
-interface ForecastDayType {
+export interface ForecastDayType {
   forecastday: ForecastType[];
 }
 
