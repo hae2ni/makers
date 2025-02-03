@@ -25,9 +25,13 @@ const MONTHS = [
   "December",
 ];
 
-export default function SelectDateComponent() {
-  const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
-
+export default function SelectDateComponent({
+  selectedDate,
+  setSelectedDate,
+}: {
+  selectedDate: Date;
+  setSelectedDate: (date: Date) => void;
+}) {
   const CustomButton = forwardRef<HTMLButtonElement, { value?: string; onClick?: () => void }>(
     ({ value, onClick }, ref) => (
       <DateButtonContinaer ref={ref} onClick={onClick}>
