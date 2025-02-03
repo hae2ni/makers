@@ -1,4 +1,9 @@
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
+import styled from "styled-components";
+import { flex } from "../styles/commonStyles";
+import { fontsObject } from "@sopt-makers/fonts";
+import { useEffect, useState } from "react";
+import { colors } from "@sopt-makers/colors";
 
 const TAB_ARR = [
   { name: "current", path: "/current" },
@@ -9,18 +14,41 @@ const TAB_ARR = [
 // 필수 구현 Tabcomponent입니다.
 export default function TabComponent() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const [clickedTab, setClickedTab] = useState("");
+
+  useEffect(() => {
+    setClickedTab(location.pathname);
+  }, [location.pathname]);
+
+  function handleClickTabButton(path: string) {
+    setClickedTab(path);
+    navigate(path);
+  }
 
   return (
     <>
-      <nav>
+      <NavContainer>
         {TAB_ARR.map((tab) => {
           return (
-            <button key={tab.name} onClick={() => navigate(tab.path)}>
+            <TabButton
+              $isActive={clickedTab === tab.path}
+              key={tab.name}
+              onClick={() => handleClickTabButton(tab.path)}>
               {tab.name}
-            </button>
+            </TabButton>
           );
         })}
-      </nav>
+      </NavContainer>
     </>
   );
 }
+
+const NavContainer = styled.nav`
+  ${flex}
+  ${fontsObject.HEADING_4_24_B}
+`;
+
+const TabButton = styled.button<{ $isActive: boolean }>`
+  color: ${({ $isActive }) => ($isActive ? "black" : colors.gray200)};
+`;
