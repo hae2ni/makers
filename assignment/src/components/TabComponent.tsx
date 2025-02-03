@@ -1,22 +1,26 @@
-import { Tab } from "@sopt-makers/ui";
+import { useNavigate } from "react-router";
 
+const TAB_ARR = [
+  { name: "current", path: "/current" },
+  { name: "forecast", path: "/forecast" },
+  { name: "future", path: "/future" },
+];
+
+// 필수 구현 Tabcomponent입니다.
 export default function TabComponent() {
-  function handleTabOnChange() {
-    //onChange 위한 함수입니다.
-  }
+  const navigate = useNavigate();
+
   return (
-    <div>
-      <Tab
-        onChange={handleTabOnChange}
-        size="lg"
-        style="primary"
-        tabItems={["Tab1", "Tab2", "Tab3"]}
-        translator={{
-          Tab1: "탭1",
-          Tab2: "탭2",
-          Tab3: "탭3",
-        }}
-      />
-    </div>
+    <>
+      <nav>
+        {TAB_ARR.map((tab) => {
+          return (
+            <button key={tab.name} onClick={() => navigate(tab.path)}>
+              {tab.name}
+            </button>
+          );
+        })}
+      </nav>
+    </>
   );
 }
