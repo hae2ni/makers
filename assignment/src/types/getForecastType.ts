@@ -1,11 +1,16 @@
 import { ConditionType } from "./getCurrentType";
 
 export interface GetForecastType {
+  forecast: ForecastDayType;
+}
+
+interface ForecastDayType {
   forecastday: ForecastType[];
 }
 
 export interface ForecastType {
   astro: AstroType;
+  date: string;
   day: DayType;
 }
 
