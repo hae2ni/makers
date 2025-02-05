@@ -1,4 +1,4 @@
-fimport { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useCityStore } from "../store/useCityStore";
 import styled from "styled-components";
 import { columnflex, flex } from "../styles/commonStyles";
