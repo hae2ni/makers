@@ -5,6 +5,7 @@ import { columnflex, flex } from "../styles/commonStyles";
 import Loading from "./Loading";
 import styled from "styled-components";
 import { colors } from "@sopt-makers/colors";
+import Error from "./Error";
 
 export default function Forecast() {
   const { city } = useCityStore();
@@ -12,6 +13,10 @@ export default function Forecast() {
 
   if (isLoading) {
     return <Loading />;
+  }
+
+  if (error || !data) {
+    return <Error />;
   }
 
   return (

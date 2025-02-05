@@ -3,6 +3,8 @@ import SelectDateComponent from "../components/SelectDateComponent";
 import useFuture from "../hooks/useFuture";
 import { useCityStore } from "../store/useCityStore";
 import styled from "styled-components";
+import Loading from "./Loading";
+import Error from "./Error";
 
 const christmas = new Date("2025-12-25");
 
@@ -13,7 +15,15 @@ export default function Future() {
   const formatDate = (date: Date) => date.toISOString().split("T")[0];
   const formattedDate = formatDate(selectedDate);
 
-  const { data } = useFuture({ location: city, date: formattedDate });
+  const { data, isLoading, error } = useFuture({ location: city, date: formattedDate });
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  if (error || !data) {
+    return <Error />;
+  }
 
   function handleSelectedDate(date: Date) {
     setSelectedDate(date);

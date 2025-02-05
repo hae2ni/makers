@@ -5,6 +5,7 @@ import { colors } from "@sopt-makers/colors";
 import { fontsObject } from "@sopt-makers/fonts";
 import Loading from "./Loading";
 import { flex } from "../styles/commonStyles";
+import Error from "./Error";
 
 export default function Current() {
   const { city } = useCityStore();
@@ -14,8 +15,8 @@ export default function Current() {
     return <Loading />;
   }
 
-  if (error) {
-    return <p>error</p>;
+  if (error || !data) {
+    return <Error />;
   }
 
   return (

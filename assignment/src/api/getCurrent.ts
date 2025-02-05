@@ -12,5 +12,6 @@ export const getCurrent = async (location: string) => {
     return data;
   } catch (err) {
     console.error("error발생!", err);
+    return null;
   }
 };
