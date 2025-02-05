@@ -67,23 +67,3 @@ const InputWrapper = styled.div`
   display: flex;
   justify-content: center;
 `;
-
-const StyledInputComponent = styled(InputComponent)`
-  width: 100%;
-  padding: 14px;
-  font-size: 18px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.1);
-  transition: 0.3s ease-in-out;
-
-  &:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 12px rgba(0, 123, 255, 0.6);
-  }
-
-  &::placeholder {
-    color: #aaa;
-    font-style: italic;
-  }
-`;
