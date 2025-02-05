@@ -70,7 +70,7 @@ export default function SelectDateComponent({
       customInput={<CustomButton />}
       selected={selectedDate}
       onChange={(date) => setSelectedDate(date)}
-      dayClassName={(d) => (d.getDate() === selectedDate!.getDate() ? styles.selectedDay : styles.unselectedDay)}
+      dayClassName={(d) => (d.getDate() === selectedDate?.getDate() ? styles.selectedDay : styles.unselectedDay)}
       excludeDates={[new Date()]}
       formatWeekDay={(day) => day.slice(0, 1)}
       calendarClassName={styles.customCalendar}
