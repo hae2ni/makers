@@ -29,8 +29,8 @@ export default function SelectDateComponent({
   selectedDate,
   setSelectedDate,
 }: {
-  selectedDate: Date;
-  setSelectedDate: (date: Date) => void;
+  selectedDate: Date | null;
+  setSelectedDate: (date: Date | null) => void;
 }) {
   const CustomButton = forwardRef<HTMLButtonElement, { value?: string; onClick?: () => void }>(
     ({ value, onClick }, ref) => (

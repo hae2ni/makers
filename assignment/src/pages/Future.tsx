@@ -10,9 +10,9 @@ const christmas = new Date("2025-12-25");
 
 export default function Future() {
   const { city } = useCityStore();
-  const [selectedDate, setSelectedDate] = useState<Date>(christmas);
+  const [selectedDate, setSelectedDate] = useState<Date | null>(christmas);
 
-  const formatDate = (date: Date) => date.toISOString().split("T")[0];
+  const formatDate = (date: Date | null) => (date ? date.toISOString().split("T")[0] : "");
   const formattedDate = formatDate(selectedDate);
 
   const { data, isLoading, error } = useFuture({ location: city, date: formattedDate });
@@ -25,7 +25,7 @@ export default function Future() {
     return <Error />;
   }
 
-  function handleSelectedDate(date: Date) {
+  function handleSelectedDate(date: Date | null) {
     setSelectedDate(date);
   }
 
